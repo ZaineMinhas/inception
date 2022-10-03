@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:41:46 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/03 17:58:36 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/03 18:13:34 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	mysql -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';"
 
 	echo "create $MARIADB_DATABASE"
-	mysql -e CREATE DATABASE $MARIADB_DATABASE
+	mysql -e "CREATE DATABASE $MARIADB_DATABASE"
+	mysql -e "create user '$MARIADB_USER'@'%' identified by '$MARIADB_USER_PASSWORD'"
+	mysql -e "grant all privileges on $MARIADB_DATABASE.* TO '$MARIADB_USER'@'%' identified by 'PASSWORD';"
 
 	mysql -e "FLUSH PRIVILEGES;"
 
