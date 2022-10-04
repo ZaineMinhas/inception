@@ -6,10 +6,10 @@ services:
     build: ./mariadb
     env_file: .env
     image: mariadb
+    networks:
+      - rezo
     volumes:
       - mariadb_volume:/var/lib/mysql
-    networks: 
-      - rezo
     restart: unless-stopped
 
 networks:
