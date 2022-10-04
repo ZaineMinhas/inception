@@ -6,12 +6,13 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/04 15:56:56 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/04 16:40:26 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
 		docker-compose -f docker-compose.yml build
+		docker-compose -f docker-compose.yml up
 
 down:
 		docker-compose -f docker-compose.yml down
