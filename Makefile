@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/04 15:49:27 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/04 15:56:56 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ down:
 		docker-compose -f docker-compose.yml down
 
 clean:	down
-		@echo "clean"
+		docker-compose -f docker-compose.yml -v --rmi all
+		@echo "cleaned"
 
 fclean:	clean
 		@echo "full cleaned"
