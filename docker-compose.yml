@@ -5,11 +5,11 @@ services:
     build: ./mariadb
     env_file: .env
     image: mariadb
-    volumes: mariadb_volume:/var/lib/mysql
-    networks: rezo
+    volume: mariadb_volume:/var/lib/mysql
+    network: rezo
     restart: unless-stopped
 
-volume:
+volumes:
   mariadb_volume:
     driver: local
     driver_opts:
@@ -17,5 +17,5 @@ volume:
       type: volume
       o: bind
 
-network:
+networks:
   rezo:
