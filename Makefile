@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/04 17:21:58 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/04 17:28:08 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,3 +42,5 @@ re:	fclean all
 	@echo "${LIGHTPURPLE}re-ready!${RESET}"
 
 .PHONY:	all clean fclean re down
+
+#	clear && 2 && 1 && 3 "la passe" && 5
