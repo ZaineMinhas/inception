@@ -5,7 +5,7 @@ services:
     image: "mariadb"
     container_name: "mariadb"
     volume: mariadb_volume
-    network: net
+    network: rezo
 
 volumes:
   mariadb_volume:
@@ -16,4 +16,4 @@ volumes:
       o: bind
 
 networks:
-  net:
+  rezo:
