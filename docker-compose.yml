@@ -1,11 +1,13 @@
 version: "3.9"
 services:
   mariadb:
+    container_name: mariadb
     build: ./mariadb
-    image: "mariadb"
-    container_name: "mariadb"
-    volume: mariadb_volume
-    network: rezo
+    env_file: .env
+    image: mariadb
+    volumes: mariadb_volume:/var/lib/mysql
+    networks: rezo
+    restart: unless-stopped
 
 volumes:
   mariadb_volume:
