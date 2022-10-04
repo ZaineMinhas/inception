@@ -9,7 +9,7 @@ services:
     networks: rezo
     restart: unless-stopped
 
-volumes:
+volume:
   mariadb_volume:
     driver: local
     driver_opts:
@@ -17,5 +17,5 @@ volumes:
       type: volume
       o: bind
 
-networks:
+network:
   rezo:
