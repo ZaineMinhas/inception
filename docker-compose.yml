@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  mariadb:
+    build: ./mariadb
+    image: "mariadb"
+    container_name: "mariadb"
+    volume: mariadb_volume
+    network: net
+
+volumes:
+  mariadb_volume:
+    driver: local
+    driver_opts:
+      device: /home/zminhas/data/database
+      type: volume
+      o: bind
+
+networks:
+  net:
