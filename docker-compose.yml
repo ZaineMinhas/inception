@@ -11,6 +11,9 @@ services:
       - rezo
     restart: unless-stopped
 
+networks:
+  rezo:
+
 volumes:
   mariadb_volume:
     driver: local
@@ -18,6 +21,3 @@ volumes:
       device: /home/zminhas/data/database
       type: volume
       o: bind
-
-networks:
-  rezo:
