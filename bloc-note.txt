@@ -5,3 +5,13 @@ afficher les containers : docker ps
 effacer les volumes : docker volume rm $(docker volume ls -q)
 
 pour se co a un container : docker exec -it [nom du container] [le programme a executer]
+
+pour voir la database : select db from mysql.db;
+								OU
+						show databases;
+						use [nom de database]
+						show tables;
+						select [nom de table];
+
+pour voir les user de mysql : select user from mysql.user;
+
