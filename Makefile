@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/05 11:56:35 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/05 11:59:14 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,12 @@ down:
 		docker-compose -f docker-compose.yml down
 
 clean:	down
-		docker volume rm inception_mariadb_volume
 		# docker-compose -f docker-compose.yml -v --rmi all
+		docker volume rm inception_mariadb_volume
 		@echo "${YELLOW}cleaned${RESET}"
 
 fclean:	clean
+		@rm -rf /home/zminhas/data
 		@echo "${RED}full cleaned${RESET}"
 
 re:	fclean all
