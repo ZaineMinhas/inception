@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/05 12:03:27 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/05 12:06:49 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ clean:	down
 
 fclean:	clean
 		@docker image rm mariadb
-		@docker image rm debian
+		@docker image rm debian:buster
 		@rm -rf /home/zminhas/datadock
 		@echo "${RED}full cleaned${RESET}"
 
