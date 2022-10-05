@@ -1,5 +1,7 @@
 pour push :	clear && 2 && 1 && 3 "la passe" && 5
 
+afficher les containers : docker ps
+
 effacer les volumes : docker volume rm $(docker volume ls -q)
 
 pour se co a un container : docker exec -it [nom du container] [le programme a executer]
