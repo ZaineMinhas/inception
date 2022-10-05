@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/04 17:28:08 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/05 11:00:23 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ RESET		= $(shell tput -Txterm sgr0)
 
 all:
 		docker-compose -f docker-compose.yml build
+		mkdir -p /home/zminhas/data/database
 		docker-compose -f docker-compose.yml up
 		@echo "${GREEN}ready!${RESET}"
 
