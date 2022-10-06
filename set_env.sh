@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    install_docker.sh                                  :+:      :+:    :+:    #
+#    set_env.sh                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 19:13:59 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/04 15:51:24 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/06 10:43:00 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 sudo apt update
 
-sudo apt-get install docker-ce docker-compose -y
-sudo apt-get install docker-compose -y
-sudo apt-get install make -y
-sudo systemctl status docker
+sudo apt-get install docker-ce docker-compose make -y
+sudo adduser $USER docker
+sudo reboot
