@@ -12,15 +12,7 @@ services:
       - mariadb_volume:/var/lib/mysql
     restart: unless-stopped
 
-services:
-  wordpress:
-    container_name: wordpress
-    build: ./wordpress
-    env_file: .env
-    image: wordpress
-    networks:
-      - rezo
-    restart: unless-stopped
+
 
 
 networks:
