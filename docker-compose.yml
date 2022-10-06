@@ -20,6 +20,8 @@ services:
     image: wordpress
     networks:
       - rezo
+    volumes:
+      - wordpress_volume:/var/www/wordpress
     restart: unless-stopped
 
 
