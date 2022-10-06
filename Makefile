@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/05 12:06:49 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/06 15:22:21 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,14 @@ down:
 clean:	down
 		# docker-compose -f docker-compose.yml -v --rmi all
 		docker volume rm inception_mariadb_volume
+		docker volume rm inception_wordpress_volume
 		@echo "${YELLOW}cleaned${RESET}"
 
 fclean:	clean
 		@docker image rm mariadb
+		@docker image rm wordpress
 		@docker image rm debian:buster
-		@rm -rf /home/zminhas/datadock
+		@rm -rf /home/zminhas/database
 		@echo "${RED}full cleaned${RESET}"
 
 re:	fclean all
