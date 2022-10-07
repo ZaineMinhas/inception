@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:16:50 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/07 11:58:24 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/07 12:15:45 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,6 @@ RUN apt-get install mariadb-server -y
 
 #Copy database creation and configutation
 COPY ./utils/entrypoint.sql /tmp/entrypoint.sql
-
-#Copy more configuration details given in the .cnf
-COPY utils/mariadb.cnf /etc/mysql/
 
 #Copy .sh script to execute everything
 COPY ./utils/entrypoint.sh ./
