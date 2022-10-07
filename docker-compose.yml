@@ -6,30 +6,23 @@ services:
     build: ./mariadb
     env_file: .env
     image: mariadb
-    restart: unless-stopped
     networks:
       - rezo
     volumes:
       - mariadb_volume:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-u", "$MARIADB_USER", "-p$MARIADB_PASSWORD"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    restart: unless-stopped
 
+services:
   wordpress:
     container_name: wordpress
     build: ./wordpress
-    depends_on:
-      mariadb:
-        condition: service_healthy
     env_file: .env
     image: wordpress
-    restart: unless-stopped
     networks:
       - rezo
     volumes:
-      - wordpress_volume:/var/www/html
+      - wordpress_volume:/var/www/wordpress
+    restart: unless-stopped
 
 
 networks:

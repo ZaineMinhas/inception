@@ -6,23 +6,16 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:16:50 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/07 12:15:45 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/07 12:20:41 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#Installing and updating Debian Buster
 FROM debian:buster
+
 RUN apt-get update
 RUN apt-get upgrade -y
 
-#MariaDB will be our database
-RUN apt-get install mariadb-server -y
+RUN apt-get install mariadb-server -y && chown -R mysql:mysql /var/lib/mysql
 
-#Copy database creation and configutation
-COPY ./utils/entrypoint.sql /tmp/entrypoint.sql
-
-#Copy .sh script to execute everything
 COPY ./utils/entrypoint.sh ./
-
-# This execution of the  script is now the starting point
-ENTRYPOINT [ "sh", "entrypoint.sh" ]
+ENTRYPOINT [ "bash", "entrypoint.sh" ]
