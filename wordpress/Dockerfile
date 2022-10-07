@@ -6,22 +6,34 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 13:10:20 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/06 15:05:23 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/07 11:36:39 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#Installing and updating Debian Buster
 FROM debian:buster
-
-RUN apt-get update
+RUN	apt-get update -y 
 RUN apt-get upgrade -y
-RUN apt-get install -y curl php7.3 php7.3-fpm php7.3-mysql
 
+#Installing all correct dependencies for php
+RUN	apt-get install -y php7.3 php7.3-fpm php7.3-mysql curl
+
+#If /tmp/wordpress/ doesn't exist we create it and work inside
+WORKDIR /tmp/wordpress/
+
+COPY utils/entrypoint.sh /tmp/wordpress/
+#Not sure if needed
+RUN mkdir -p /run/php
+
+#Installing WordPress CLI 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-RUN mkdir -p /var/www/wordpress && chown -R www-data:www-data /var/www/wordpress
-RUN wp core download --path="/var/www/wordpress/" --allow-root
+WORKDIR /var/www/html/wordpress
 
-COPY ./utils/entrypoint.sh ./
-ENTRYPOINT [ "bash", "entrypoint.sh" ]
+#Download and extract WordPress core files to default folder (wp cli command)
+RUN wp core download --allow-root
+RUN chown -R www-data:www-data /var/www/html
+
+ENTRYPOINT ["sh", "/tmp/wordpress/entrypoint.sh"]
