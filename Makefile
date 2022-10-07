@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/07 13:58:19 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/07 14:00:11 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,8 @@ down:
 		docker-compose -f ./srcs/docker-compose.yml down
 
 clean:	down
-		docker volume rm srcs_inception_mariadb_volume
-		docker volume rm srcs_inception_wordpress_volume
+		docker volume rm srcs_mariadb_volume
+		docker volume rm srcs_wordpress_volume
 		@echo "${YELLOW}cleaned${RESET}"
 
 fclean:	clean
