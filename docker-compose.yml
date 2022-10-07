@@ -35,3 +35,10 @@ volumes:
       device: /home/zminhas/data/database
       type: volume
       o: bind
+  wordpress_volume:
+    driver: local
+    driver_opts:
+      device: /home/zminhas/data/wordpress
+      type: volume
+      o: bind
+
