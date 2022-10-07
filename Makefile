@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/06 15:22:21 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/07 11:43:07 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ RESET		= $(shell tput -Txterm sgr0)
 all:
 		docker-compose -f docker-compose.yml build
 		mkdir -p /home/zminhas/data/database
+		mkdir -p /home/zminhas/data/wordpress
 		docker-compose -f docker-compose.yml up
 		@echo "${GREEN}ready!${RESET}"
 
