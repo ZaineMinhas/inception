@@ -17,7 +17,7 @@ services:
       timeout: 5s
       retries: 5
 
-wordpress:
+  wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
     depends_on:
