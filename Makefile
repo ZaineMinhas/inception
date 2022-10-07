@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/07 11:43:07 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/07 13:46:17 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,19 @@ all:
 		docker-compose -f docker-compose.yml build
 		mkdir -p /home/zminhas/data/database
 		mkdir -p /home/zminhas/data/wordpress
-		docker-compose -f docker-compose.yml up
+		docker-compose -f ./srcs/docker-compose.yml up
 		@echo "${GREEN}ready!${RESET}"
 
 up:		
-		docker-compose -f docker-compose.yml up
+		docker-compose -f ./srcs/docker-compose.yml up
 
 down:
-		docker-compose -f docker-compose.yml down
+		docker-compose -f ./srcs/docker-compose.yml down
 
 clean:	down
-		# docker-compose -f docker-compose.yml -v --rmi all
-		docker volume rm inception_mariadb_volume
-		docker volume rm inception_wordpress_volume
+		# docker-compose -f ./srcs/docker-compose.yml -v --rmi all
+		docker volume rm srcs_inception_mariadb_volume
+		docker volume rm srcs_inception_wordpress_volume
 		@echo "${YELLOW}cleaned${RESET}"
 
 fclean:	clean
