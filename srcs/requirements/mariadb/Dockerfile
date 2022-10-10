@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:16:50 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/07 12:20:41 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/10 18:12:58 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,15 @@ FROM debian:buster
 
 RUN apt-get update
 RUN apt-get upgrade -y
+RUN apt-get install mariadb-server -y
 
-RUN apt-get install mariadb-server -y && chown -R mysql:mysql /var/lib/mysql
+RUN chown -R mysql:mysql /var/lib/mysql
+RUN mkdir -p /var/run/mysqld; \
+	mkfifo /var/run/mysqld/mysqld.sock
+RUN chown -R mysql:mysql /var/run/mysqld
 
+COPY ./utils/mariadb.cnf /etc/mysql
+COPY ./utils/config.sql ./
 COPY ./utils/entrypoint.sh ./
+
 ENTRYPOINT [ "bash", "entrypoint.sh" ]

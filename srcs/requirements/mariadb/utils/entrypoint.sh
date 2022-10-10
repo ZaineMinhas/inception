@@ -6,29 +6,20 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:41:46 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/07 12:20:59 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/10 17:37:04 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/sh
 
 if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
-	service mysql start
-
-	mysql -e "UPDATE mysql.user SET Password=PASSWORD($MARIADB_PASSOWRD) WHERE User='root"
-	mysql -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1')"
-	mysql -e "DELETE FROM mysql.user WHERE User=''"
-	mysql -e "DROP DATABASE test"
-	mysql -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'"
+	service mysql start --datadir=/var/lib/mysql
 
 	echo "create $MARIADB_DATABASE"
-	mysql -e "create database $MARIADB_DATABASE"
-	mysql -e "create user '$MARIADB_USER'@'%' identified by '$MARIADB_USER_PASSWORD'"
-	mysql -e "grant all privileges on $MARIADB_DATABASE.* TO '$MARIADB_USER'@'%'"
+	eval "echo \"$(cat config.sql)\"" | mariadb -u root #execute le config.sql
 
-	mysql -e "flush privileges;"
-
-	service mysql stop
+	service mysql stop --datadir=/var/lib/mysql
 fi
 
+echo "$MARIADB_DATABASE ready"
 mysqld_safe --datadir=/var/lib/mysql

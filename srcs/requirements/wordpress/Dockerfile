@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 13:10:20 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/07 12:21:14 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/10 18:32:17 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
-RUN mkdir -p /var/www/wordpress && chown -R www-data:www-data /var/www/wordpress
+RUN mkdir -p /var/www/wordpress
+RUN chown -R www-data:www-data /var/www/wordpress
 RUN wp core download --path="/var/www/wordpress/" --allow-root
 
 COPY ./utils/entrypoint.sh ./

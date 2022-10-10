@@ -1,0 +1,3 @@
+[galera] #outils aui permet reconnaitre la suite
+bind-adress=0.0.0.0 #port d'ecoute de mariadb
+port=3306 #port par defaut de mariadb
