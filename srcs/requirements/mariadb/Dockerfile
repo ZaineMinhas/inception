@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:16:50 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/12 12:01:58 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/12 12:03:24 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RUN mkdir -p /var/run/mysqld; \
 	mkfifo /var/run/mysqld/mysqld.sock
 RUN chown -R mysql:mysql /var/run/mysqld
 
-# COPY ./utils/mariadb.cnf /etc/mysql/
+COPY utils/mariadb.cnf /etc/mysql/
 COPY ./utils/config.sql ./
 COPY ./utils/entrypoint.sh ./
 
