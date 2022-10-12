@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/12 14:14:40 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/12 14:20:28 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,5 @@ fclean:	clean
 		@echo "${RED}full cleaned${RESET}"
 
 re:	fclean all
-	@echo "${LIGHTPURPLE}re-ready!${RESET}"
 
 .PHONY:	all clean fclean re down
