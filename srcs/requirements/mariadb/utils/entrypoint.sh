@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:41:46 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/12 13:10:04 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/12 13:33:49 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	echo "create $MARIADB_DATABASE"
 	eval "echo \"$(cat config.sql)\"" | mariadb -u root
 
-	service mysql stop --datadir=/var/lib/mysql
+	service mysql stop
 fi
 
 mysqld_safe --datadir=/var/lib/mysql
