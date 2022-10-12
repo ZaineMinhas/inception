@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/10 18:52:27 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/12 10:39:59 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,9 @@ if ! wp core is-installed --allow-root; then
 					--allow-root
 
 	wp post generate	--count=1 \		#generate first post
-						--post-title="" \
-						--post-author="" \
-						--post-content="" \
+						--post-title="le manque d'idees" \
+						--post-author="moi" \
+						--post-content="j'ai pas d'idee" \
 						--allow-root
 fi
 
