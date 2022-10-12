@@ -6,15 +6,15 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/12 11:24:45 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/12 13:19:33 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/sh
 
 wp config create --dbname=$MARIADB_DATABASE \
-					--dbuser=MARIADB_USER \
-					--dbpass=MARIADB_USER_PASSWORD \
+					--dbuser=$MARIADB_USER \
+					--dbpass=$MARIADB_USER_PASSWORD \
 					--dbhost=$MARIADB_HOST \
 					--path="/var/www/wordpress" \
 					--skip-check \
