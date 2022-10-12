@@ -22,6 +22,9 @@ services:
     build: ./requirements/wordpress
     env_file: .env
     image: wordpress
+    depends_on:
+      mariadb:
+        condition: service_healthy
     networks:
       - rezo
     volumes:
