@@ -15,3 +15,4 @@ pour voir la database : select db from mysql.db;
 
 pour voir les user de mysql : select user from mysql.user;
 
+pour voir les tables de la db : select * from [table]
