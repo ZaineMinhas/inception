@@ -31,6 +31,16 @@ services:
       - wordpress_volume:/var/www/wordpress
     restart: unless-stopped
 
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    env_file: .env
+    image: nginx
+    depends_on:
+      wordpress:
+    networks:
+      - rezo
+    restart: unless-stopped
 
 networks:
   rezo:
@@ -42,6 +52,7 @@ volumes:
       device: /home/zminhas/data/database
       type: volume
       o: bind
+
   wordpress_volume:
     driver: local
     driver_opts:

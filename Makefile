@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/12 14:20:28 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/13 11:36:26 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,14 @@ RESET		= $(shell tput -Txterm sgr0)
 
 all:
 		docker-compose -f ./srcs/docker-compose.yml build
+		sudo echo "127.0.0.1 zminhas.19.be" >> /etc/hosts
 		mkdir -p /home/zminhas/data/database
 		mkdir -p /home/zminhas/data/wordpress
-		docker-compose -f ./srcs/docker-compose.yml up --detach
+		docker-compose -f ./srcs/docker-compose.yml up
 		@echo "${GREEN}ready!${RESET}"
 
 up:		
-		docker-compose -f ./srcs/docker-compose.yml up --detach
+		docker-compose -f ./srcs/docker-compose.yml up
 
 down:
 		docker-compose -f ./srcs/docker-compose.yml down
@@ -41,10 +42,11 @@ clean:	down
 fclean:	clean
 		@docker image rm mariadb
 		@docker image rm wordpress
+		@docker image rm nginx
 		@docker image rm debian:buster
 		@sudo rm -rf /home/zminhas/data
 		@echo "${RED}full cleaned${RESET}"
 
 re:	fclean all
 
-.PHONY:	all clean fclean re down
+.PHONY:	all up down clean fclean re
