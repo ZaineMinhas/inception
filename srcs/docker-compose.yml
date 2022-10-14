@@ -41,6 +41,8 @@ services:
     networks:
       - rezo
     restart: unless-stopped
+    volumes:
+      - wordpress_volume:/var/www/wordpress
 
 networks:
   rezo:
