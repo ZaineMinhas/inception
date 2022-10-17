@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 13:03:40 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 14:06:22 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ if [ $? -ne 0 ]; then
 					--dbhost=$MARIADB_HOST \
 					--path="/var/www/wordpress/" \
 					--skip-check \
-					--allow-root
+					--allow-root	#generate config file
 	touch /.setup
 fi
 

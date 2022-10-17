@@ -31,19 +31,6 @@ services:
       - wordpress_volume:/var/www/wordpress
     restart: unless-stopped
 
-  nginx:
-    container_name: nginx
-    build: ./requirements/nginx
-    env_file: .env
-    image: nginx
-    depends_on:
-      wordpress:
-    networks:
-      - rezo
-    restart: unless-stopped
-    volumes:
-      - wordpress_volume:/var/www/wordpress
-
 networks:
   rezo:
 

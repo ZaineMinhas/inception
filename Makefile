@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 13:12:30 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 14:06:35 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ clean:	down
 fclean:	clean
 		@docker image rm mariadb
 		@docker image rm wordpress
-		@docker image rm nginx
 		@docker image rm debian:buster
 		@sudo rm -rf /home/zminhas/data
 		@echo "${RED}full cleaned${RESET}"
