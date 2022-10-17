@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 16:58:17 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 17:11:34 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ if ! wp core is-installed --allow-root; then
 					--admin_user=$WORDPRESS_ADMIN \
 					--admin_password=$WORDPRESS_ADMIN_PASSWORD \
 					--admin_email=$WORDPRESS_ADMIN_EMAIL \
+					--skip-email \
 					--allow-root		#install wordpress
 
 	wp plugin update --all \
