@@ -6,13 +6,19 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 14:06:22 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 15:26:19 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/sh
 
-cat /.setup 2> /dev/null
+grep -E "listen = 9000" "/etc/php/7.3/fpm/pool.d/www.conf" > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+ 	echo "listen port configuration"
+	sed -i "s|.*listen = /run/php/php7.3-fpm.sock.*|listen = 9000|g" "/etc/php/7.3/fpm/pool.d/www.conf" 
+fi
+
+cat /.setup 2> /dev/null	#check if the config file already exist
 if [ $? -ne 0 ]; then
 	echo "create config.php"
 	wp config create --dbname=$MARIADB_DATABASE \
