@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 11:24:04 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 16:42:20 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 16:59:52 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,6 @@ RUN openssl req -x509 -nodes \
 	-out /etc/ssl/zminhas.42.fr.crt \
 	-subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=zminhas.42.fr/UID=zminhas"
 
-CMD [ "nginx" "-g" "daemon off;" ]
+CMD [ "nginx", "-g", "daemon off;" ]
 
 # ecrire nginx.conf

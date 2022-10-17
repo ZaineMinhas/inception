@@ -6,9 +6,11 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 16:41:46 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 16:55:07 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 16:58:15 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#!/bin/sh
 
 if [ ! -d /var/lib/mysql/$MARIADB_DATABASE ]; then
 	service mysql start --datadir=/var/lib/mysql

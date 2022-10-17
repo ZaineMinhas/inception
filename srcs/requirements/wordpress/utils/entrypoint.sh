@@ -6,9 +6,11 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 16:55:04 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 16:58:17 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#!/bin/sh
 
 grep -E "listen = 9000" "/etc/php/7.3/fpm/pool.d/www.conf" > /dev/null 2>&1
 if [ $? -ne 0 ]; then
