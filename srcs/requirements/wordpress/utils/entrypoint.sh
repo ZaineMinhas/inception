@@ -6,19 +6,23 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/12 14:00:15 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/17 12:48:01 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/sh
 
-wp config create --dbname=$MARIADB_DATABASE \
+cat /.setup 2> /dev/null
+if [ $? -ne 0 ]; then
+	wp config create --dbname=$MARIADB_DATABASE \
 					--dbuser=$MARIADB_USER \
 					--dbpass=$MARIADB_USER_PASSWORD \
 					--dbhost=$MARIADB_HOST \
 					--path="/var/www/wordpress" \
 					--skip-check \
 					--allow-root	#generate config file
+	touch /.setup
+fi
 
 if ! wp core is-installed --allow-root; then
 	wp core install --url=$WORDPRESS_URL \
