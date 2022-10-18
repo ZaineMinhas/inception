@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/17 16:43:24 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 10:55:47 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RESET		= $(shell tput -Txterm sgr0)
 
 all:
 		docker-compose -f ./srcs/docker-compose.yml build
-		sudo echo "127.0.0.1 zminhas.19.be" >> /etc/hosts
+		sudo echo "127.0.0.1 zminhas.42.fr" >> /etc/hosts
 		mkdir -p /home/zminhas/data/database
 		mkdir -p /home/zminhas/data/wordpress
 		docker-compose -f ./srcs/docker-compose.yml up
