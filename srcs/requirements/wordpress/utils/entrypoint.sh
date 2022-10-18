@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 13:58:39 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 14:02:52 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ fi
 
 cat /.setup 2> /dev/null	#check if the config file already exist
 if [ $? -ne 0 ]; then
+	echo "create config.php"
 	wp config create --dbname=$MARIADB_DATABASE \
 					--dbuser=$MARIADB_USER \
 					--dbpass=$MARIADB_USER_PASSWORD \
