@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 10:55:47 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 11:42:31 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,11 @@ all:
 		sudo echo "127.0.0.1 zminhas.42.fr" >> /etc/hosts
 		mkdir -p /home/zminhas/data/database
 		mkdir -p /home/zminhas/data/wordpress
-		docker-compose -f ./srcs/docker-compose.yml up
+		docker-compose -f ./srcs/docker-compose.yml up --detach
 		@echo "${GREEN}ready!${RESET}"
 
 up:		
-		docker-compose -f ./srcs/docker-compose.yml up
+		docker-compose -f ./srcs/docker-compose.yml up --detach
 
 down:
 		docker-compose -f ./srcs/docker-compose.yml down
