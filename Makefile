@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 11:42:31 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 14:43:33 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,11 @@ all:
 
 up:		
 		docker-compose -f ./srcs/docker-compose.yml up --detach
+		@echo "${LIGHTPURPLE}container up${RESET}"
 
 down:
 		docker-compose -f ./srcs/docker-compose.yml down
+		@echo "${BLUE}container down${RESET}"
 
 clean:	down
 		docker volume rm srcs_mariadb_volume
