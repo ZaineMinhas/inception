@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 13:53:28 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 13:58:39 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ if ! wp core is-installed --allow-root; then
 					--skip-email \
 					--allow-root		#install wordpress
 
-	wp plugin update --all --allow-root		#update wordpress
+	wp plugin update --all \
+						--allow-root		#update wordpress
 	
 	wp user create $WORDPRESS_USER $WORDPRESS_USER_EMAIL \
 					--role=editor \
@@ -47,10 +48,10 @@ if ! wp core is-installed --allow-root; then
 					--allow-root		#create user
 
 	wp post generate --count=1 \
-					--post_title=$WORDPRESS_TITLE \
-					--post_author=$WORDPRESS_ADMIN \
-					--post_content="j'ai pas d'idee" \
-					--allow-root		#generate first post
+						--post_title=$WORDPRESS_TITLE \
+						--post_author=$WORDPRESS_ADMIN \
+						--post_content="j'ai pas d'idee" \
+						--allow-root		#generate first post
 fi
 
 php-fpm7.3 --nodaemonize
