@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 15:44:42 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 14:47:15 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 14:48:08 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ BLACK		= $(shell tput -Txterm setaf 0)
 RED			= $(shell tput -Txterm setaf 1)
 GREEN		= $(shell tput -Txterm setaf 2)
 YELLOW		= $(shell tput -Txterm setaf 3)
-LIGHTPURPLE	= $(shell tput -Txterm setaf 4)
+BLUE		= $(shell tput -Txterm setaf 4)
 PURPLE		= $(shell tput -Txterm setaf 5)
-BLUE		= $(shell tput -Txterm setaf 6)
+LIGHTBLUE	= $(shell tput -Txterm setaf 6)
 WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
@@ -30,11 +30,11 @@ all:
 
 up:		
 		docker-compose -f ./srcs/docker-compose.yml up --detach
-		@echo "${BLUE}container up${RESET}"
+		@echo "${LIGHTBLUE}container up${RESET}"
 
 down:
 		docker-compose -f ./srcs/docker-compose.yml down
-		@echo "${LIGHTPURPLE}container down${RESET}"
+		@echo "${BLUE}container down${RESET}"
 
 clean:	down
 		docker volume rm srcs_mariadb_volume
