@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 11:24:04 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 11:22:51 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 11:23:35 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install nginx openssl -y
 
-COPY ./tools/nginx.conf /etc/nginx/sites-enabled/default.conf
+COPY ./utils/nginx.conf /etc/nginx/sites-enabled/default.conf
 
 RUN openssl req -x509 -nodes \
 	-out /etc/ssl/zminhas.42.fr.crt \
