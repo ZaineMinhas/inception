@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 11:24:04 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 11:23:35 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 11:28:47 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,4 +23,4 @@ RUN openssl req -x509 -nodes \
 	-keyout /etc/ssl/zminhas.42.fr.key \
 	-subj "/C=BE/ST=Belgium/L=Brussels/O=42/OU=19/CN=zminhas.42.fr/UID=zminhas"
 
-CMD [ "nginx", "-g", "daemon off;" ]
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
