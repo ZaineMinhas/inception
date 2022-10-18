@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/06 15:24:18 by zminhas           #+#    #+#              #
-#    Updated: 2022/10/18 14:02:52 by zminhas          ###   ########.fr        #
+#    Updated: 2022/10/18 14:03:34 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,7 @@ if ! wp core is-installed --allow-root; then
 					--skip-email \
 					--allow-root		#install wordpress
 
-	wp plugin update --all \
-						--allow-root		#update wordpress
+	wp plugin update --all --allow-root		#update wordpress
 	
 	wp user create $WORDPRESS_USER $WORDPRESS_USER_EMAIL \
 					--role=editor \
