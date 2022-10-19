@@ -10,7 +10,7 @@ effacer les images : docker image rm $(docker image ls -q)
 afficher les volumes : docker volume ls
 effacer les volumes : docker volume rm $(docker volume ls -q)
 
-ouvrir un terminal dans un container : docker exec -it [nom du container] bash
+ouvrir un terminal bash dans un container : docker exec -it [nom du container] bash
 
 utiliser mysql avec le root : mysql --user=root --password=[password]
 
