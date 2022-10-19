@@ -2,19 +2,30 @@ pour push :	clear && 2 && 1 && 3 "la passe" && 5
 
 afficher les containers : docker ps
 
+afficher les reseaux : docker network ls
+
+afficher les images docker : docker image ls
+effacer les images : docker image rm $(docker image ls -q)
+
+afficher les volumes : docker volume ls
 effacer les volumes : docker volume rm $(docker volume ls -q)
 
-pour se co a un container : docker exec -it [nom du container] [le programme a executer]
+ouvrir un terminal dans un container : docker exec -it [nom du container] bash
+
+utiliser mysql avec le root : mysql --user=root --password=[password]
 
 pour voir la database : select db from mysql.db;
+						use [nom de database]
+						show tables;
+						select * from [table]
 								OU
 						show databases;
 						use [nom de database]
 						show tables;
-						select [nom de table];
+						select * from [table]
 
-pour voir les user de mysql : select user from mysql.user;
+pour voie les databases : select db from mysql.db;
+pour voir les user de la database : select user from mysql.user;
 
-pour voir les tables de la db : select * from [table]
-
-c'est quoi docker-compose inpect ?
+pour voir les tables de la db : show databases;
+pour voir ce qu'il y a dans une table : select * from [table]
